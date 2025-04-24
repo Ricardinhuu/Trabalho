@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Visitas - Conebel</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <img src="logocnb.jpg" alt="Logo Conebel" class="logo" id="logo-conebel">
+            <h1><i class="fas fa-route"></i> Sistema de Visitas de Vendedores</h1>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="grid-layout">
+            <!-- Seção de Entrada Manual -->
+            <section class="input-section">
+                <h2><i class="fas fa-user-plus"></i> Entrada Manual</h2>
+                <div class="form-group">
+                    <label for="vendedor"><i class="fas fa-user"></i> Vendedor:</label>
+                    <input type="text" id="vendedor" placeholder="Nome do vendedor">
+                </div>
+                <div class="form-group">
+                    <label for="dia"><i class="fas fa-calendar-day"></i> Dia da Semana:</label>
+                    <select id="dia">
+                        <option value="segunda">Segunda-feira</option>
+                        <option value="terca">Terça-feira</option>
+                        <option value="quarta">Quarta-feira</option>
+                        <option value="quinta">Quinta-feira</option>
+                        <option value="sexta">Sexta-feira</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="clientes"><i class="fas fa-users"></i> Número de Clientes:</label>
+                    <input type="number" id="clientes" min="0" placeholder="Quantidade de clientes">
+                </div>
+                <button id="adicionar"><i class="fas fa-plus-circle"></i> Adicionar Visita</button>
+            </section>
+
+            <!-- Seção de Importação CSV -->
+            <section class="import-section">
+                <h2><i class="fas fa-file-import"></i> Importar Dados</h2>
+                <div class="form-group">
+                    <label for="arquivo-csv"><i class="fas fa-file-csv"></i> Selecione o arquivo CSV:</label>
+                    <input type="file" id="arquivo-csv" accept=".csv">
+                </div>
+                
+                <div id="preview-section" style="display: none;">
+                    <h3><i class="fas fa-table"></i> Pré-visualização do Arquivo</h3>
+                    <div class="preview-container">
+                        <div id="colunas-disponiveis"></div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label><i class="fas fa-columns"></i> Selecione as colunas:</label>
+                        <div class="colunas-input">
+                            <div>
+                                <label for="coluna-codigo"><i class="fas fa-id-card"></i> Coluna do Código do Representante:</label>
+                                <select id="coluna-codigo"></select>
+                            </div>
+                            <div>
+                                <label for="coluna-dia"><i class="fas fa-calendar"></i> Coluna do Dia de Visita:</label>
+                                <select id="coluna-dia"></select>
+                            </div>
+                            <div>
+                                <label for="coluna-periodicidade"><i class="fas fa-sync"></i> Coluna da Periodicidade:</label>
+                                <select id="coluna-periodicidade"></select>
+                            </div>
+                            <div>
+                                <label for="coluna-data"><i class="fas fa-calendar-alt"></i> Coluna da Data da Visita:</label>
+                                <select id="coluna-data"></select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="data-referencia"><i class="fas fa-calendar-check"></i> Data de Referência:</label>
+                        <input type="date" id="data-referencia" required>
+                        <small><i class="fas fa-info-circle"></i> Esta data será usada para determinar a semana 1 e semana 2</small>
+                    </div>
+                </div>
+                
+                <button id="importar" style="display: none;"><i class="fas fa-upload"></i> Importar CSV</button>
+            </section>
+        </div>
+
+        <!-- Seção de Resultados -->
+        <section class="resultados">
+            <h2><i class="fas fa-chart-bar"></i> Resumo de Visitas</h2>
+            <div class="tabs">
+                <button class="tab-button active" data-tab="semana1">
+                    <i class="fas fa-calendar-week"></i> Semana 1
+                </button>
+                <button class="tab-button" data-tab="semana2">
+                    <i class="fas fa-calendar-week"></i> Semana 2
+                </button>
+            </div>
+            <div id="tabela-visitas"></div>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 

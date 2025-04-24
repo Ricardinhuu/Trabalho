@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conebel - Sistema de Visitas</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #0056b3, #003366);
+            padding: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at center, rgba(255,255,255,0.1) 0%, transparent 50%);
+            animation: rotate 30s linear infinite;
+            z-index: 1;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+            text-align: center;
+            max-width: 600px;
+            width: 90%;
+            position: relative;
+            z-index: 2;
+            backdrop-filter: blur(10px);
+        }
+
+        .logo {
+            max-width: 250px;
+            margin-bottom: 2rem;
+            border-radius: 12px;
+            background: white;
+            padding: 1rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #0056b3;
+            margin-bottom: 1.5rem;
+            font-size: 2.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .description {
+            color: #666;
+            margin: 1.5rem 0;
+            line-height: 1.6;
+            font-size: 1.1rem;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: linear-gradient(135deg, #0056b3, #003366);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+            border: 2px solid transparent;
+        }
+
+        .button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,86,179,0.3);
+            background: white;
+            color: #0056b3;
+            border-color: #0056b3;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+            text-align: left;
+        }
+
+        .feature {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .feature h3 {
+            color: #0056b3;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .feature p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 2rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .logo {
+                max-width: 200px;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <img src="logocnb.jpg" alt="Logo Conebel" class="logo">
+        <h1>Sistema de Visitas</h1>
+        <p class="description">
+            Gerencie e otimize as rotas dos vendedores de forma eficiente com nosso sistema integrado de balanceamento de visitas.
+        </p>
+        
+        <div class="features">
+            <div class="feature">
+                <h3><i class="fas fa-route"></i> Rotas Otimizadas</h3>
+                <p>Distribua as visitas de forma equilibrada entre as semanas.</p>
+            </div>
+            <div class="feature">
+                <h3><i class="fas fa-file-import"></i> Importação CSV</h3>
+                <p>Importe dados facilmente através de arquivos CSV.</p>
+            </div>
+            <div class="feature">
+                <h3><i class="fas fa-chart-line"></i> Análise Visual</h3>
+                <p>Visualize dados com destaque para dias sobrecarregados.</p>
+            </div>
+        </div>
+
+        <a href="Balanceamento/index.html" class="button">
+            <i class="fas fa-sign-in-alt"></i> Acessar Sistema
+        </a>
+    </div>
+</body>
+</html> 
